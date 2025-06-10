@@ -7,7 +7,6 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f5f5f5;
 }
 
 header {
@@ -29,29 +28,28 @@ nav a {
     color: white;
     text-decoration: none;
     font-size: 1.1rem;
-    transition: color 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 
 nav a:hover {
-    color: #3498db;
+    background-color: #34495e;
 }
 
-main {
+.section {
+    padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
-}
-
-section {
-    margin-bottom: 3rem;
 }
 
 h2 {
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
     text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
 }
 
+/* Tours Container */
 .tours-container {
     display: flex;
     flex-wrap: wrap;
@@ -60,10 +58,10 @@ h2 {
 }
 
 .tour-card {
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
+    background: white;
+    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
     width: 300px;
     transition: transform 0.3s;
 }
@@ -72,51 +70,101 @@ h2 {
     transform: translateY(-5px);
 }
 
-.tour-card img {
+.tour-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-.tour-card h3 {
-    color: #2c3e50;
+.tour-info {
     padding: 1rem;
-    margin: 0;
 }
 
-.tour-card p {
-    padding: 0.5rem 1rem;
-    color: #666;
-}
-
-.tour-card .price {
-    color: #e74c3c;
-    font-weight: bold;
+.tour-title {
     font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
 }
 
-.tour-card button {
-    width: 100%;
-    padding: 1rem;
-    background-color: #3498db;
+.tour-duration {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.tour-price {
+    font-size: 1.3rem;
+    color: #27ae60;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.book-button {
+    background-color: #27ae60;
     color: white;
     border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.book-button:hover {
+    background-color: #219a52;
+}
+
+/* Bookings Container */
+.bookings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.bookings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.cancel-all-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.tour-card button:hover {
-    background-color: #2980b9;
+.cancel-all-button:hover {
+    background-color: #c0392b;
 }
 
-.bookings-container {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
+.bookings-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
 }
 
-.contact-container {
+.cancel-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+    background-color: #c0392b;
+}
+
+/* Contacts Section */
+.contacts-container {
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
@@ -125,6 +173,9 @@ h2 {
 .contact-form {
     flex: 1;
     min-width: 300px;
+}
+
+.contact-form form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -134,7 +185,7 @@ h2 {
 .contact-form textarea {
     padding: 0.8rem;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 .contact-form textarea {
@@ -143,24 +194,22 @@ h2 {
 }
 
 .contact-form button {
-    padding: 1rem;
-    background-color: #3498db;
+    background-color: #2c3e50;
     color: white;
     border: none;
-    border-radius: 5px;
+    padding: 1rem;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .contact-form button:hover {
-    background-color: #2980b9;
+    background-color: #34495e;
 }
 
 .map {
     flex: 1;
     min-width: 300px;
-    border-radius: 10px;
-    overflow: hidden;
 }
 
 footer {
@@ -172,212 +221,13 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .tours-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .contact-container {
-        flex-direction: column;
-    }
-    
     nav ul {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
     }
 
-    header {
-        position: relative;
+    .contacts-container {
+        flex-direction: column;
     }
-}
-
-/* Стилі для профілю */
-.profile-section {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.profile-container {
-    background-color: white;
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.profile-info {
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-}
-
-.profile-avatar {
-    text-align: center;
-}
-
-.profile-avatar img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-}
-
-.change-avatar {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.profile-form {
-    flex: 1;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.save-profile {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 1rem;
-}
-
-/* Стилі для деталей туру */
-.tour-details {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.tour-header {
-    margin-bottom: 2rem;
-}
-
-.tour-gallery {
-    margin: 2rem 0;
-}
-
-.main-image {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-}
-
-.thumbnail-gallery {
-    display: flex;
-    gap: 1rem;
-}
-
-.thumbnail-gallery img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.tour-info {
-    display: flex;
-    gap: 2rem;
-}
-
-.tour-description {
-    flex: 2;
-}
-
-.tour-booking {
-    flex: 1;
-}
-
-.price-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.tour-schedule {
-    margin-top: 2rem;
-}
-
-.day {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-}
-
-/* Стилі для бронювань */
-.booking-card {
-    display: flex;
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.booking-card img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-}
-
-.booking-info {
-    padding: 1rem;
-    flex: 1;
-}
-
-.cancel-booking {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 1rem;
-}
-
-/* Стилі для посилань на тури */
-.tour-link {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #2c3e50;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin: 0.5rem 0;
-}
-
-.tour-link:hover {
-    background-color: #34495e;
-}
-
-/* Активний пункт меню */
-nav a.active {
-    color: #3498db;
-    font-weight: bold;
 } 
