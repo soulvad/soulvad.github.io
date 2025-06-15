@@ -5,6 +5,8 @@ require('dotenv').config();
 const admin = require('firebase-admin');
 const serviceAccount = require('./serviceAccountKey.json');
 
+console.log('Admin SDK project_id:', serviceAccount.project_id);
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -84,7 +86,10 @@ app.get('*', (req, res) => {
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
+
+console.log('Admin SDK initialized:', !!admin.apps.length);
 const db = admin.firestore();
+console.log('db.constructor.name:', db.constructor.name);
 
 app.get('/api/users', async (req, res) => {
   try {
